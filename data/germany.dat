@@ -1,0 +1,98 @@
+# Created by Alexandre Trilla <alex@atrilla.net>
+# name: G
+# type: matrix
+# rows: 10
+# columns: 10
+ 0 85 217 0 0 0 0 0 0 173
+ 85 0 0 0 80 0 0 0 0 0
+ 217 0 0 0 0 186 103 0 0 0
+ 0 0 0 0 0 0 183 0 0 0
+ 0 80 0 0 0 0 0 250 0 0
+ 0 0 186 0 0 0 0 0 0 0
+ 0 0 103 183 0 0 0 0 167 0
+ 0 0 0 0 250 0 0 0 84 0
+ 0 0 0 0 0 0 167 84 0 502
+ 173 0 0 0 0 0 0 0 502 0
+# name: D
+# type: struct
+# length: 10
+# name: Frankfurt
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+1
+
+# name: Mannheim
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+2
+
+# name: Wurzburg
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+3
+
+# name: Stuttgart
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+4
+
+# name: Karlsruhe
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+5
+
+# name: Erfurt
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+6
+
+# name: Nurnberg
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+7
+
+# name: Ausburg
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+8
+
+# name: Munchen
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+9
+
+# name: Kassel
+# type: cell
+# rows: 1
+# columns: 1
+# name: <cell-element>
+# type: scalar
+10
+

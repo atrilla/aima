@@ -25,9 +25,10 @@
 
 ## Author: Alexandre Trilla <alex@atrilla.net>
 
-function [] = ut_prettyplot(h)
+function [] = prettyplot(h)
 
-W = 3; H = 2;
+W = 3;
+H = 2;
 set(h,'PaperUnits','inches')
 set(h,'PaperOrientation','portrait');
 set(h,'PaperSize',[H,W])

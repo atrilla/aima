@@ -6,10 +6,11 @@ File organisation
 The file organisation of the open-source release of AIMA is shown as
 follows:
 
-* src: library folder.
-* src/ut_: Utility functions.
+* src: AIMA function library folder.
+  + Search
 
 * test: functional testing folder.
+  + Utility
 
 
 Unit testing
