@@ -1,3 +1,8 @@
+03-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/breadth_first_search.m: coding style.
+
+
 02-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/breadth_first_search.m: created.

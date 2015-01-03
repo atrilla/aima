@@ -34,35 +34,35 @@ node.state = start;
 node.parent = [];
 node.cost = 0;
 
-if node.state == finish
+if (node.state == finish)
     solution = node;
 else
     frontier = [node];
     explored = [];
     found = 0;
-    while(~found)
-        if numel(frontier) == 0
+    while (~found)
+        if (numel(frontier) == 0)
             solution = 0;
             found = 1;
             break;
-        end
+        endif
         % pop frontier
         node = frontier(1);
         frontier = frontier(2:end);
         % explore
         explored(numel(explored)+1) = node.state;
-        for i=1:size(problem, 2)
-            if problem(node.state, i)>0
-                if i~=node.state
-                    if ~sum(explored == i)
+        for i = 1:size(problem, 2)
+            if (problem(node.state, i)>0)
+                if (i~=node.state)
+                    if (~sum(explored == i))
                         inFront = 0;
-                        for j=1:numel(frontier)
-                            if frontier(j).state == i
+                        for j = 1:numel(frontier)
+                            if (frontier(j).state == i)
                                 inFront = 1;
                                 break;
-                            end
-                        end
-                        if ~inFront
+                            endif
+                        endfor
+                        if (~inFront)
                             % expand search space
                             child.state = i;
                             path = node.parent;
@@ -71,20 +71,20 @@ else
                             child.cost = node.cost + ...
                                 problem(node.state, i);
                             % check goal
-                            if i==finish
+                            if (i==finish)
                                 solution = child;
                                 found = 1;
                                 break;
                             else
                                 frontier = [frontier child];
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
-end
+                            endif
+                        endif
+                    endif
+                endif
+            endif
+        endfor
+    endwhile
+endif
 
 endfunction
 
