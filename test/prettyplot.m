@@ -1,4 +1,4 @@
-## Copyright (C) 2014 Alexandre Trilla
+## Copyright (C) 2014-2015 Alexandre Trilla
 ##
 ## This file is part of AIMA.
 ##

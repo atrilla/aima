@@ -13,8 +13,8 @@
 ## <http://www.opensource.org/licenses/mit-license>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{solution} =} breadth_first_search (@var{problem}, @var{start}, @var{finish})
-## Breadth-first search algorithm on a graph (uninformed strategy).
+## @deftypefn {Function File} {@var{solution} =} uniform_cost_search (@var{problem}, @var{start}, @var{finish})
+## Uniform-cost search algorithm on a graph (uninformed strategy).
 ##
 ## PRE:
 ## @var{problem} must be the cost-weighted adjacency matrix.
@@ -27,7 +27,7 @@
 
 ## Author: Alexandre Trilla <alex@atrilla.net>
 
-function [solution] = breadth_first_search(problem, start, finish)
+function [solution] = uniform_cost_search(problem, start, finish)
 
 % inits
 node.state = start;
@@ -46,38 +46,47 @@ else
             found = 1;
             break;
         endif
-        % pop frontier
-        node = frontier(1);
-        frontier = frontier(2:end);
+        % pop frontier, lowest cost node
+        testNode = frontier(1);
+        testIdx = 1;
+        for i = 2:numel(frontier)
+            if (frontier(i).cost < testNode.cost)
+                testNode = frontier(i);
+                testIdx = i;
+                continue;
+            endif
+        endfor
+        frontier = ...
+            frontier([1:(testIdx-1) (testIdx+1):numel(frontier)]);
+        node = testNode;
+        % check
+        if (node.state == finish)
+            solution = node;
+            break;
+        endif
         % explore
         explored(numel(explored)+1) = node.state;
         for i = 1:size(problem, 2)
             if (problem(node.state, i)>0)
                 if (i ~= node.state)
+                    child.state = i;
+                    path = node.parent;
+                    path = [path node.state];
+                    child.parent = path;
+                    child.cost = node.cost + problem(node.state, i);
                     if (~sum(explored == i))
                         inFront = 0;
                         for j = 1:numel(frontier)
                             if (frontier(j).state == i)
                                 inFront = 1;
+                                if (frontier(j).cost > child.cost)
+                                    frontier(j) = child;
+                                endif
                                 break;
                             endif
                         endfor
                         if (~inFront)
-                            % expand search space
-                            child.state = i;
-                            path = node.parent;
-                            path = [path node.state];
-                            child.parent = path;
-                            child.cost = node.cost + ...
-                                problem(node.state, i);
-                            % check goal
-                            if (i == finish)
-                                solution = child;
-                                found = 1;
-                                break;
-                            else
-                                frontier = [frontier child];
-                            endif
+                            frontier = [frontier child];
                         endif
                     endif
                 endif
@@ -93,8 +102,8 @@ endfunction
 
 %!test
 %! load ../data/germany.dat;
-%! S = breadth_first_search(G, D.Frankfurt, D.Stuttgart);
-%! assert(S.state == D.Stuttgart);
+%! S = uniform_cost_search(G, D.Frankfurt, D.Munchen);
+%! assert(S.state == D.Munchen);
 %! assert(S.parent(1) == D.Frankfurt);
 %! assert(S.parent(2) == D.Wurzburg);
 %! assert(S.parent(3) == D.Nurnberg);

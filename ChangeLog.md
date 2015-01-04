@@ -1,3 +1,8 @@
+04-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/uniform_cost_search.m: created.
+
+
 03-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/breadth_first_search.m: coding style.
