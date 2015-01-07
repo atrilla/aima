@@ -1,3 +1,15 @@
+07-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/depth_limited_search.m: created.
+    * src/recursive_dls.m
+
+    * src/depth_first_search.m: created.
+
+    * src/breadth_first_search.m: return failure state.
+
+    * src/uniform_cost_search.m: return failure state.
+
+
 04-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/uniform_cost_search.m: created.

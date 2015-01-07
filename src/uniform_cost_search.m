@@ -14,7 +14,7 @@
 
 ## -*- texinfo -*-
 ## @deftypefn {Function File} {@var{solution} =} uniform_cost_search (@var{problem}, @var{start}, @var{finish})
-## Uniform-cost search algorithm on a graph (uninformed strategy).
+## Uniform-cost search on a graph.
 ##
 ## PRE:
 ## @var{problem} must be the cost-weighted adjacency matrix.
@@ -22,7 +22,7 @@
 ## @var{finish} must be the finishing node index.
 ##
 ## POST:
-## @var{solution} is the solution path. Zero if failure.
+## @var{solution} is the solution path. State set to zero if failure.
 ## @end deftypefn
 
 ## Author: Alexandre Trilla <alex@atrilla.net>
@@ -42,7 +42,7 @@ else
     found = 0;
     while (~found)
         if (numel(frontier) == 0)
-            solution = 0;
+            solution.state = 0;
             found = 1;
             break;
         endif

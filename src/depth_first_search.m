@@ -13,8 +13,9 @@
 ## <http://www.opensource.org/licenses/mit-license>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{solution} =} breadth_first_search (@var{problem}, @var{start}, @var{finish})
-## Breadth-first search on a graph.
+## @deftypefn {Function File} {@var{solution} =} depth_first_search (@var{problem}, @var{start}, @var{finish})
+## Depth-first search algorithm on a graph (uninformed strategy).
+## Based on the Graph-Search-style implementation.
 ##
 ## PRE:
 ## @var{problem} must be the cost-weighted adjacency matrix.
@@ -27,7 +28,7 @@
 
 ## Author: Alexandre Trilla <alex@atrilla.net>
 
-function [solution] = breadth_first_search(problem, start, finish)
+function [solution] = depth_first_search(problem, start, finish)
 
 % inits
 node.state = start;
@@ -76,7 +77,7 @@ else
                                 found = 1;
                                 break;
                             else
-                                frontier = [frontier child];
+                                frontier = [child frontier];
                             endif
                         endif
                     endif
@@ -93,9 +94,6 @@ endfunction
 
 %!test
 %! load ../data/germany.dat;
-%! S = breadth_first_search(G, D.Frankfurt, D.Stuttgart);
+%! S = depth_first_search(G, D.Frankfurt, D.Stuttgart);
 %! assert(S.state == D.Stuttgart);
-%! assert(S.parent(1) == D.Frankfurt);
-%! assert(S.parent(2) == D.Wurzburg);
-%! assert(S.parent(3) == D.Nurnberg);
 
