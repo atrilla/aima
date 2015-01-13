@@ -1,3 +1,14 @@
+13-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/breadth_first_search.m: tree/graph algorithm versions.
+      Coding style.
+    * src/adt_first_search.m: created. Based on former BFS.
+    * src/ins_fifo.m: created.
+
+    * src/uniform_cost_search.m: tree/graph algorithm versions.
+      Coding style.
+
+
 07-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/depth_limited_search.m: created.

@@ -24,7 +24,7 @@ All algorithms described in the book (planned).
 
 Requirements
 ------------
-Octave 3.2.4 (partial compatibility with Matlab)
+Octave 3.2.4 (easy migration to Matlab)
 
 
 Development status

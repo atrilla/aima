@@ -23,7 +23,6 @@
 ## @var{limit} must be the depth limit.
 ##
 ## POST:
-## @var{solution} is the solution path. Zero if standard failure
 ## @var{solution} is the solution path. State set to zero if standard
 ## failure (no solution). One if cutoff failure (no solution within 
 ## the depth limit).

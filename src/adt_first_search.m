@@ -13,14 +13,18 @@
 ## <http://www.opensource.org/licenses/mit-license>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{solution} =} uniform_cost_search (@var{problem}, @var{start}, @var{finish})
-## Uniform-cost search algorithm.
+## @deftypefn {Function File} {@var{solution} =} adt_first_search (@var{problem}, @var{start}, @var{finish}, @var{insert})
+## Abstract-data type-first search algorithm.
+## Generic function that is used to respect the DRY principle.
 ##
 ## PRE:
 ## @var{problem} must be the cost-weighted adjacency matrix.
 ## @var{start} must be the starting node index.
 ## @var{finish} must be the finishing node index.
-## @var{treegraph} must be the tree/graph version flag. 0 is tree-version.
+## @var{treegraph} must be the tree/graph version flag. Zero is
+## tree-version.
+## @var{insert} must be function handle to manage the insertion into
+## the frontier.
 ##
 ## POST:
 ## @var{solution} is the solution path. State set to zero if failure.
@@ -28,8 +32,8 @@
 
 ## Author: Alexandre Trilla <alex@atrilla.net>
 
-function [solution] = uniform_cost_search(problem, start, ...
-  finish, treegraph)
+function [solution] = adt_first_search(problem, start, ...
+  finish, treegraph, insert)
 
   % inits
   node.state = start;
@@ -48,24 +52,9 @@ function [solution] = uniform_cost_search(problem, start, ...
         found = 1;
         break;
       endif
-      % pop frontier, lowest cost node
-      testNode = frontier(1);
-      testIdx = 1;
-      for i = 2:numel(frontier)
-        if (frontier(i).cost < testNode.cost)
-          testNode = frontier(i);
-          testIdx = i;
-          continue;
-        endif
-      endfor
-      frontier = ...
-        frontier([1:(testIdx-1) (testIdx+1):numel(frontier)]);
-      node = testNode;
-      % check
-      if (node.state == finish)
-        solution = node;
-        break;
-      endif
+      % pop frontier
+      node = frontier(1);
+      frontier = frontier(2:end);
       % explore
       if (treegraph)
         explored(numel(explored)+1) = node.state;
@@ -73,11 +62,7 @@ function [solution] = uniform_cost_search(problem, start, ...
       for i = 1:size(problem, 2)
         if (problem(node.state, i)>0)
           if (i ~= node.state)
-            child.state = i;
-            path = node.parent;
-            path = [path node.state];
-            child.parent = path;
-            child.cost = node.cost + problem(node.state, i);
+            % by default, continue exploration
             notExpl = 1;
             if (treegraph)
               notExpl = ~sum(explored == i);
@@ -87,14 +72,24 @@ function [solution] = uniform_cost_search(problem, start, ...
               for j = 1:numel(frontier)
                 if (frontier(j).state == i)
                   inFront = 1;
-                  if (frontier(j).cost > child.cost)
-                    frontier(j) = child;
-                  endif
                   break;
                 endif
               endfor
               if (~inFront)
-                frontier = [frontier child];
+                % expand search space
+                child.state = i;
+                path = node.parent;
+                path = [path node.state];
+                child.parent = path;
+                child.cost = node.cost + problem(node.state, i);
+                % check goal
+                if (i == finish)
+                  solution = child;
+                  found = 1;
+                  break;
+                else
+                  frontier = insert(frontier,child);
+                endif
               endif
             endif
           endif
@@ -104,15 +99,4 @@ function [solution] = uniform_cost_search(problem, start, ...
   endif
 
 endfunction
-
-% Test based on BFS article on Wikipedia: 
-% http://en.wikipedia.org/wiki/Breadth-first_search
-
-%!test
-%! load ../data/germany.dat;
-%! S = uniform_cost_search(G, D.Frankfurt, D.Munchen, 1);
-%! assert(S.state == D.Munchen);
-%! assert(S.parent(1) == D.Frankfurt);
-%! assert(S.parent(2) == D.Wurzburg);
-%! assert(S.parent(3) == D.Nurnberg);
 
