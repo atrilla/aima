@@ -1,3 +1,9 @@
+17-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/adt_search.m : former adt_first_search.m.
+    * src/breadth_first_search.m
+
+
 13-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/breadth_first_search.m: tree/graph algorithm versions.

@@ -13,9 +13,8 @@
 ## <http://www.opensource.org/licenses/mit-license>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{solution} =} adt_first_search (@var{problem}, @var{start}, @var{finish}, @var{insert})
-## Abstract-data type-first search algorithm.
-## Generic function that is used to respect the DRY principle.
+## @deftypefn {Function File} {@var{solution} =} adt_search (@var{problem}, @var{start}, @var{finish}, @var{insert})
+## Abstract data type search algorithm.
 ##
 ## PRE:
 ## @var{problem} must be the cost-weighted adjacency matrix.
@@ -32,7 +31,7 @@
 
 ## Author: Alexandre Trilla <alex@atrilla.net>
 
-function [solution] = adt_first_search(problem, start, ...
+function [solution] = adt_search(problem, start, ...
   finish, treegraph, insert)
 
   % inits
