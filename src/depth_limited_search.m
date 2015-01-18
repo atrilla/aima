@@ -31,12 +31,12 @@
 ## Author: Alexandre Trilla <alex@atrilla.net>
 
 function [solution] = depth_limited_search(problem, start, ...
-    finish, limit)
+  finish, limit)
 
-node.state = start;
-node.parent = [];
-node.cost = 0;
-solution = recursive_dls(node, problem, finish, limit);
+  node.state = start;
+  node.parent = [];
+  node.cost = 0;
+  solution = recursive_dls(node, problem, finish, limit);
 
 endfunction
 

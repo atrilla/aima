@@ -32,38 +32,38 @@
 
 function [solution] = recursive_dls(node, problem, finish, limit)
 
-if (node.state == finish)
+  if (node.state == finish)
     solution = node;
-elseif (limit == 0)
+  elseif (limit == 0)
     solution.state = 1;
-else
+  else
     cutoff = 0;
     for i = 1:size(problem, 2)
-        if (problem(node.state, i)>0)
-            if (i ~= node.state)
-                % expand search space
-                child.state = i;
-                path = node.parent;
-                path = [path node.state];
-                child.parent = path;
-                child.cost = node.cost + problem(node.state, i);
-                result = recursive_dls(child, problem, finish, ...
-                    limit - 1);
-                if (result.state == 1)
-                    cutoff = 1;
-                elseif (result.state ~= 0)
-                    solution = result;
-                    return;
-                endif
-            endif
+      if (problem(node.state, i)>0)
+        if (i ~= node.state)
+          % expand search space
+          child.state = i;
+          path = node.parent;
+          path = [path node.state];
+          child.parent = path;
+          child.cost = node.cost + problem(node.state, i);
+          result = recursive_dls(child, problem, finish, ...
+            limit - 1);
+          if (result.state == 1)
+            cutoff = 1;
+          elseif (result.state ~= 0)
+            solution = result;
+            return;
+          endif
         endif
+      endif
     endfor
     if (cutoff)
-        solution.state = 1;
+      solution.state = 1;
     else
-        solution.state = 0;
+      solution.state = 0;
     endif
-endif
+  endif
 
 endfunction
 
