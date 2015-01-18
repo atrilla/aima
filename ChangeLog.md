@@ -1,3 +1,9 @@
+18-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/depth_first_search.m: use adt_search.
+    * src/ins_lifo.m: created.
+
+
 17-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/adt_search.m : former adt_first_search.m.

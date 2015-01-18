@@ -13,7 +13,7 @@
 ## <http://www.opensource.org/licenses/mit-license>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{solution} =} adt_search (@var{problem}, @var{start}, @var{finish}, @var{insert})
+## @deftypefn {Function File} {@var{solution} =} adt_search (@var{problem}, @var{start}, @var{finish}, @var{treegraph}, @var{insert})
 ## Abstract data type search algorithm.
 ##
 ## PRE:

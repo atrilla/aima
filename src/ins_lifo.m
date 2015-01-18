@@ -14,7 +14,7 @@
 
 ## -*- texinfo -*-
 ## @deftypefn {Function File} {@var{insertion} =} ins_fifo(@var{frontier}, @var{node})
-## Queue insertion.
+## Stack insertion.
 ##
 ## PRE:
 ## @var{frontier} must be a struct array for the frontier.
@@ -26,9 +26,9 @@
 
 ## Author: Alexandre Trilla <alex@atrilla.net>
 
-function [insertion] = ins_fifo(frontier, node)
+function [insertion] = ins_lifo(frontier, node)
 
-  insertion = [frontier node];
+  insertion = [node frontier];
 
 endfunction
 

@@ -13,7 +13,7 @@
 ## <http://www.opensource.org/licenses/mit-license>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{solution} =} breadth_first_search (@var{problem}, @var{start}, @var{finish})
+## @deftypefn {Function File} {@var{solution} =} breadth_first_search (@var{problem}, @var{start}, @var{finish}, @var{treegraph})
 ## Breadth-first search algorithm.
 ##
 ## PRE:
@@ -31,8 +31,7 @@
 function [solution] = breadth_first_search(problem, start, ...
   finish, treegraph)
 
-  solution = adt_search(problem, start, finish, treegraph, ...
-    @ins_fifo);
+  solution = adt_search(problem, start, finish, treegraph, @ins_fifo);
 
 endfunction
 
