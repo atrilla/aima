@@ -1,3 +1,8 @@
+26-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/iterative_deepening_search.m: created.
+
+
 18-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/depth_first_search.m: use adt_search.
