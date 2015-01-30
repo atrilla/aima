@@ -1,3 +1,13 @@
+30-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/best_first_search.m: created. Based on UCS.
+    * src/uniform_cost_search.m
+
+    * src/greedy_search: created.
+
+    * src/a_star_search.m: created.
+
+
 26-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/iterative_deepening_search.m: created.

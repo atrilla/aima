@@ -13,14 +13,15 @@
 ## <http://www.opensource.org/licenses/mit-license>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{solution} =} uniform_cost_search (@var{problem}, @var{start}, @var{finish}, @var{treegraph})
-## Uniform-cost search algorithm.
+## @deftypefn {Function File} {@var{solution} =} greedy_search (@var{problem}, @var{start}, @var{finish}, @var{treegraph}, @var{heuristic})
+## Greedy search algorithm.
 ##
 ## PRE:
 ## @var{problem} must be the cost-weighted adjacency matrix.
 ## @var{start} must be the starting node index.
 ## @var{finish} must be the finishing node index.
 ## @var{treegraph} must be the tree/graph version flag. 0 is tree-version.
+## @var{heuristic} must be the heuristic vector.
 ##
 ## POST:
 ## @var{solution} is the solution path. State set to zero if failure.
@@ -28,12 +29,12 @@
 
 ## Author: Alexandre Trilla <alex@atrilla.net>
 
-function [solution] = uniform_cost_search(problem, start, ...
-  finish, treegraph)
+function [solution] = greedy_search(problem, start, finish, treegraph,
+  heuristic)
 
   % eval func is anonymous and returns path cost
   solution = best_first_search(problem, start, finish, treegraph, ...
-    @(p,h) p, zeros(1, size(problem, 2)));
+    @(p,h) h, heuristic);
 
 endfunction
 
@@ -42,9 +43,6 @@ endfunction
 
 %!test
 %! load ../data/germany.dat;
-%! S = uniform_cost_search(G, D.Frankfurt, D.Munchen, 1);
+%! S = greedy_search(G, D.Frankfurt, D.Munchen, 1, [378 341 265 216 282 379 150 63 0 458]);
 %! assert(S.state == D.Munchen);
-%! assert(S.parent(1) == D.Frankfurt);
-%! assert(S.parent(2) == D.Wurzburg);
-%! assert(S.parent(3) == D.Nurnberg);
 
