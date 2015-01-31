@@ -1,3 +1,11 @@
+31-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/best_first_search.m: cost is vector: path and heuristic.
+    * src/uniform_cost_search.m
+    * src/greedy_search.m
+    * src/a_star_search.m
+
+
 30-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/best_first_search.m: created. Based on UCS.

@@ -32,10 +32,9 @@
 function [solution] = a_star_search(problem, start, finish, treegraph,
   heuristic)
 
-  % eval func is anonymous and returns path cost
-  % doing this, heuristic is compounded in the node cost
+  % eval func is anonymous and returns path cost + heuristic
   solution = best_first_search(problem, start, finish, treegraph, ...
-    @(p,h) p + h, heuristic);
+    @(cost) cost(1) + cost(2), heuristic);
 
 endfunction
 

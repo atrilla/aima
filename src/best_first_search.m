@@ -26,6 +26,8 @@
 ##
 ## POST:
 ## @var{solution} is the solution path. State set to zero if failure.
+##
+## In this implementation, cost is a vector: [path_cost heuristic_cost].
 ## @end deftypefn
 
 ## Author: Alexandre Trilla <alex@atrilla.net>
@@ -36,7 +38,7 @@ function [solution] = best_first_search(problem, start, finish, ...
   % inits
   node.state = start;
   node.parent = [];
-  node.cost = 0;
+  node.cost = [0 heuristic(start)];
   
   if (node.state == finish)
     solution = node;
@@ -54,7 +56,7 @@ function [solution] = best_first_search(problem, start, finish, ...
       testNode = frontier(1);
       testIdx = 1;
       for i = 2:numel(frontier)
-        if (frontier(i).cost < testNode.cost)
+        if (feval(frontier(i).cost) < feval(testNode.cost))
           testNode = frontier(i);
           testIdx = i;
         endif
@@ -75,11 +77,10 @@ function [solution] = best_first_search(problem, start, finish, ...
         if (problem(node.state, i)>0)
           if (i ~= node.state)
             child.state = i;
-            path = node.parent;
-            path = [path node.state];
-            child.parent = path;
-            accumPath = node.cost + problem(node.state, i);
-            child.cost = feval(accumPath, heuristic(i));
+            child.parent = [node.parent node.state];
+            accumPath = node.cost(1) + problem(node.state, i);
+            child.cost(1) = accumPath;
+            child.cost(2) = heuristic(i);
             notExpl = 1;
             if (treegraph)
               notExpl = ~sum(explored == i);
@@ -89,7 +90,7 @@ function [solution] = best_first_search(problem, start, finish, ...
               for j = 1:numel(frontier)
                 if (frontier(j).state == i)
                   inFront = 1;
-                  if (frontier(j).cost > child.cost)
+                  if (feval(frontier(j).cost) > feval(child.cost))
                     frontier(j) = child;
                   endif
                   break;

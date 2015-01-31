@@ -32,9 +32,9 @@
 function [solution] = greedy_search(problem, start, finish, treegraph,
   heuristic)
 
-  % eval func is anonymous and returns path cost
+  % eval func is anonymous and returns heuristic
   solution = best_first_search(problem, start, finish, treegraph, ...
-    @(p,h) h, heuristic);
+    @(cost) cost(2), heuristic);
 
 endfunction
 

@@ -33,7 +33,7 @@ function [solution] = uniform_cost_search(problem, start, ...
 
   % eval func is anonymous and returns path cost
   solution = best_first_search(problem, start, finish, treegraph, ...
-    @(p,h) p, zeros(1, size(problem, 2)));
+    @(cost) cost(1), zeros(1, size(problem, 2)));
 
 endfunction
 
