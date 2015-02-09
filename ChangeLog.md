@@ -1,3 +1,12 @@
+09-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/breadth_first_search.m: included ins_fifo.
+
+    * src/depth_first_search.m: included ins_lifo.
+
+    * src/depth_limited_search.m: included recursive_dls.
+
+
 31-Jan-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/best_first_search.m: cost is vector: path and heuristic.

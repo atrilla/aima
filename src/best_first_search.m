@@ -13,7 +13,7 @@
 ## <http://www.opensource.org/licenses/mit-license>.
 
 ## -*- texinfo -*-
-## @deftypefn {Function File} {@var{solution} =} best_first_search (@var{problem}, @var{start}, @var{finish}, @var{treegraph}, @var{feval})
+## @deftypefn {Function File} {@var{solution} =} best_first_search (@var{problem}, @var{start}, @var{finish}, @var{treegraph}, @var{feval}, @var{heuristic})
 ## Best-first search algorithm.
 ##
 ## PRE:

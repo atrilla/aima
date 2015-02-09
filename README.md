@@ -1,5 +1,5 @@
-AIMA - Artificial Intelligence, A Modern Approach
-=================================================
+AIMA - Artificial Intelligence, A Maker's Approach
+==================================================
 
 The AIMA project develops open-source software for Artificial
 Intelligence.
@@ -14,7 +14,8 @@ learning.
 Mission
 -------
 To provide an open-source implementation of Russell and Norvig's
-"Artificial Intelligence, A Modern Approach" book.
+"Artificial Intelligence, A Modern Approach" book as the main 
+reference guide (hence the name of the project).
 
 
 Features

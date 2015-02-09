@@ -35,6 +35,14 @@ function [solution] = depth_first_search(problem, start, finish, ...
 
 endfunction
 
+
+function [insertion] = ins_lifo(frontier, node)
+
+  insertion = [node frontier];
+
+endfunction
+
+
 % Test based on BFS article on Wikipedia: 
 % http://en.wikipedia.org/wiki/Breadth-first_search
 

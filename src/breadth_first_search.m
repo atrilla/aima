@@ -35,6 +35,14 @@ function [solution] = breadth_first_search(problem, start, ...
 
 endfunction
 
+
+function [insertion] = ins_fifo(frontier, node)
+
+  insertion = [frontier node];
+
+endfunction
+
+
 % Test based on BFS article on Wikipedia: 
 % http://en.wikipedia.org/wiki/Breadth-first_search
 

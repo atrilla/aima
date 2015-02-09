@@ -40,6 +40,45 @@ function [solution] = depth_limited_search(problem, start, ...
 
 endfunction
 
+
+function [solution] = recursive_dls(node, problem, finish, limit)
+
+  if (node.state == finish)
+    solution = node;
+  elseif (limit == 0)
+    solution.state = 1;
+  else
+    cutoff = 0;
+    for i = 1:size(problem, 2)
+      if (problem(node.state, i)>0)
+        if (i ~= node.state)
+          % expand search space
+          child.state = i;
+          path = node.parent;
+          path = [path node.state];
+          child.parent = path;
+          child.cost = node.cost + problem(node.state, i);
+          result = recursive_dls(child, problem, finish, ...
+            limit - 1);
+          if (result.state == 1)
+            cutoff = 1;
+          elseif (result.state ~= 0)
+            solution = result;
+            return;
+          endif
+        endif
+      endif
+    endfor
+    if (cutoff)
+      solution.state = 1;
+    else
+      solution.state = 0;
+    endif
+  endif
+
+endfunction
+
+
 % Test based on BFS article on Wikipedia: 
 % http://en.wikipedia.org/wiki/Breadth-first_search
 
