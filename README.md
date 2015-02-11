@@ -25,7 +25,7 @@ All algorithms described in the book (planned).
 
 Requirements
 ------------
-Octave 3.2.4 (easy migration to Matlab)
+Lua 5.2
 
 
 Development status

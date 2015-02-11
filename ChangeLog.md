@@ -1,3 +1,10 @@
+11-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/adt_search.lua: former adt_search.m
+    * src/breadth_first_search.lua
+    * test/unit_breadth_first_search.lua
+
+
 09-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/breadth_first_search.m: included ins_fifo.
