@@ -1,3 +1,11 @@
+12-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/best_first_search.lua: migrated from Octave.
+    * src/depth_first_search.lua
+    * src/uniform_cost_search.lua
+    * test/unit_problem_solving_searching.lua
+
+
 11-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/adt_search.lua: former adt_search.m

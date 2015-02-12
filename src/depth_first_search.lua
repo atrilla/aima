@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------
--- File    : unit_breadth_first_search.lua
--- Created : 11-Feb-2015
+-- File    : depth_first_search.lua
+-- Created : 12-Feb-2015
 -- By      : Alexandre Trilla <alex@atrilla.net>
 --
 -- AIMA - Artificial Intelligence, A Maker's Approach
@@ -21,24 +21,26 @@
 -- <http://www.opensource.org/licenses/mit-license>.
 ----------------------------------------------------------------------
 
--- Unit test for the breadth-first search algorithm.
+-- Depth-first search algorithm.
+--
+-- PRE:
+-- problem - must be the cost-weighted adjacency matrix (table).
+-- start - must be the starting node index (number).
+-- finish - must be the finishing node index (number).
+-- treegraph - must be the tree/graph version flag (boolean).
+--   True for graph search version.
+--
+-- POST:
+-- solution - is the solution path. State set to zero if failure.
 
 
-package.path = package.path .. ";../src/?.lua;../data/?.lua"
+require("adt_search")
 
-local germany = require("germany")
-require("breadth_first_search")
-
-t1 = os.clock()
-solution = breadth_first_search(germany.problem, 
-  germany.state.Frankfurt, germany.state.Stuttgart, true)
-t2 = os.clock()
-
-print("Stuttgart ID is " .. germany.state.Stuttgart)
-print(solution.state)
-print("cost " .. solution.cost)
-for i = 1,#solution.parent do
-  print("Parent " .. solution.parent[i])
+function depth_first_search(problem, start, finish, treegraph)
+  return adt_search(problem, start, finish, treegraph, ins_lifo)
 end
-print("Elapsed " .. t2 - t1)
+
+function ins_lifo(frontier, node)
+  table.insert(frontier, 1, node)
+end
 
