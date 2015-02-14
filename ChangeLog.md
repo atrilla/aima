@@ -1,6 +1,12 @@
+14-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/depth_limited_search.lua: translated.
+    * test/unit_problem_solving_searching.lua
+
+
 12-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
-    * src/best_first_search.lua: migrated from Octave.
+    * src/best_first_search.lua: translated from Octave.
     * src/depth_first_search.lua
     * src/uniform_cost_search.lua
     * test/unit_problem_solving_searching.lua

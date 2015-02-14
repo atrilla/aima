@@ -24,15 +24,15 @@
 -- Abstract data type search algorithm.
 --
 -- PRE:
--- problem - must be the cost-weighted adjacency matrix (table).
--- start - must be the starting node index (number).
--- finish - must be the finishing node index (number).
--- treegraph - must be the tree/graph version flag (boolean).
+-- problem - cost-weighted adjacency matrix (table).
+-- start - starting node index (number).
+-- finish - finishing node index (number).
+-- treegraph - tree/graph version flag (boolean).
 --   True for graph search version.
 -- insert - function to manage the insertion into the frontier.
 --
 -- POST:
--- solution - is the solution path. State set to zero if failure.
+-- solution - solution path (table). State set to zero if failure.
 --
 -- It is convenient to state the problem as an adjacency matrix
 -- because state references must be directly accessed.

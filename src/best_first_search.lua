@@ -24,16 +24,16 @@
 -- Best-first search algorithm.
 --
 -- PRE:
--- problem - must be the cost-weighted adjacency matrix (table).
--- start - must be the starting node index (number).
--- finish - must be the finishing node index (number).
--- treegraph - must be the tree/graph version flag (boolean).
+-- problem - cost-weighted adjacency matrix (table).
+-- start - starting node index (number).
+-- finish - finishing node index (number).
+-- treegraph - tree/graph version flag (boolean).
 --   True for graph search version.
--- feval - must be the evaluation function (function).
+-- feval - evaluation function.
 -- heuristic - must be a heuristic at the node level (table).
 --
 -- POST:
--- solution - is the solution path. State set to zero if failure.
+-- solution - solution path (table). State set to zero if failure.
 --
 -- In this implementation, cost is a vector: 
 -- {path_cost, heuristic_cost}.
