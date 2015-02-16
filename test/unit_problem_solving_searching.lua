@@ -33,6 +33,7 @@ require("depth_first_search")
 require("depth_limited_search")
 require("iterative_deepening_search")
 require("greedy_search")
+require("a_star_search")
 
 print("Breadth-first search")
 print("--------------------")
@@ -154,6 +155,34 @@ print("-------------")
 -- heuristic based on highway distances from ViaMichelin
 t1 = os.clock()
 solution = greedy_search(germany.problem, germany.state.Frankfurt,
+  germany.state.Munchen, true, 
+  {378, 341, 265, 216, 282, 379, 150, 63, 0, 458})
+t2 = os.clock()
+
+print("Solution is Munchen...",
+  solution.state == germany.state.Munchen)
+
+print("Path cost is... " .. solution.cost[1])
+
+for i = 1, #solution.parent do
+  local cName = nil
+  for city,id in pairs(germany.state) do
+    if (id == solution.parent[i]) then
+      print("Parent " .. i .. ": " .. city)
+      break
+    end
+  end
+end
+
+print("Elapsed: " .. t2 - t1)
+
+print("")
+
+print("A-star search")
+print("-------------")
+-- heuristic based on highway distances from ViaMichelin
+t1 = os.clock()
+solution = a_star_search(germany.problem, germany.state.Frankfurt,
   germany.state.Munchen, true, 
   {378, 341, 265, 216, 282, 379, 150, 63, 0, 458})
 t2 = os.clock()

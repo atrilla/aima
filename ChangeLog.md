@@ -3,6 +3,9 @@
     * src/greedy_search.lua: translated.
     * test/unit_problem_solving_searching.lua
 
+    * src/a_star_search.lua: translated.
+    * test/unit_problem_solving_searching.lua
+
 
 15-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
