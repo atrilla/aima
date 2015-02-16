@@ -1,3 +1,15 @@
+16-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/greedy_search.lua: translated.
+    * test/unit_problem_solving_searching.lua
+
+
+15-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/iterative_deepening_search.lua: translated.
+    * test/unit_problem_solving_searching.lua
+
+
 14-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/depth_limited_search.lua: translated.
