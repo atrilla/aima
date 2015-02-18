@@ -1,3 +1,9 @@
+18-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/recursive_best_first_search.lua: created.
+    * test/unit_problem_solving_searching.lua
+
+
 16-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/greedy_search.lua: translated.
