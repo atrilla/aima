@@ -1,3 +1,14 @@
+21-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * test/unit_problem_solving_searching.lua: asserts.
+
+
+20-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/hill_climbing.lua: created.
+    * test/unit_beyond_classical_search.lua
+
+
 18-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/recursive_best_first_search.lua: created.

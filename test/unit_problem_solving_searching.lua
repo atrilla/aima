@@ -21,7 +21,7 @@
 -- <http://www.opensource.org/licenses/mit-license>.
 ----------------------------------------------------------------------
 
--- Unit test for the breadth-first search algorithm.
+-- Unit test for chapter 3.
 
 
 package.path = package.path .. ";../src/?.lua;../data/?.lua"
@@ -36,6 +36,10 @@ require("greedy_search")
 require("a_star_search")
 require("recursive_best_first_search")
 
+print("Unit test chapter 3")
+print("Search path from Frankfurt to Munchen")
+print("")
+
 print("Breadth-first search")
 print("--------------------")
 local t1 = os.clock()
@@ -43,8 +47,7 @@ local solution = breadth_first_search(germany.problem,
   germany.state.Frankfurt, germany.state.Munchen, true)
 local t2 = os.clock()
 
-print("Solution is Munchen...",
-  solution.state == germany.state.Munchen)
+assert(solution.state == germany.state.Munchen, "Solution is Munchen")
 
 print("Path cost is... " .. solution.cost)
 
@@ -69,8 +72,7 @@ solution = uniform_cost_search(germany.problem,
   germany.state.Frankfurt, germany.state.Munchen, true)
 t2 = os.clock()
 
-print("Solution is Munchen...",
-  solution.state == germany.state.Munchen)
+assert(solution.state == germany.state.Munchen, "Solution is Munchen")
 
 print("Path cost is... " .. solution.cost[1])
 
@@ -95,8 +97,7 @@ solution = depth_first_search(germany.problem,
   germany.state.Frankfurt, germany.state.Munchen, true)
 t2 = os.clock()
 
-print("Solution is Munchen...",
-  solution.state == germany.state.Munchen)
+assert(solution.state == germany.state.Munchen, "Solution is Munchen")
 
 print("Path cost is... " .. solution.cost)
 
@@ -121,8 +122,7 @@ solution = depth_limited_search(germany.problem,
   germany.state.Frankfurt, germany.state.Munchen, 3)
 t2 = os.clock()
 
-print("Solution is Munchen...",
-  solution.state == germany.state.Munchen)
+assert(solution.state == germany.state.Munchen, "Solution is Munchen")
 
 print("Path cost is... " .. solution.cost)
 
@@ -147,8 +147,7 @@ solution = iterative_deepening_search(germany.problem,
   germany.state.Frankfurt, germany.state.Munchen)
 t2 = os.clock()
 
-print("Solution is Munchen...",
-  solution.state == germany.state.Munchen)
+assert(solution.state == germany.state.Munchen, "Solution is Munchen")
 
 print("Path cost is... " .. solution.cost)
 
@@ -175,8 +174,7 @@ solution = greedy_search(germany.problem, germany.state.Frankfurt,
   {378, 341, 265, 216, 282, 379, 150, 63, 0, 458})
 t2 = os.clock()
 
-print("Solution is Munchen...",
-  solution.state == germany.state.Munchen)
+assert(solution.state == germany.state.Munchen, "Solution is Munchen")
 
 print("Path cost is... " .. solution.cost[1])
 
@@ -203,8 +201,7 @@ solution = a_star_search(germany.problem, germany.state.Frankfurt,
   {378, 341, 265, 216, 282, 379, 150, 63, 0, 458})
 t2 = os.clock()
 
-print("Solution is Munchen...",
-  solution.state == germany.state.Munchen)
+assert(solution.state == germany.state.Munchen, "Solution is Munchen")
 
 print("Path cost is... " .. solution.cost[1])
 
@@ -230,8 +227,7 @@ solution = recursive_best_first_search(germany.problem,
   {378, 341, 265, 216, 282, 379, 150, 63, 0, 458})
 t2 = os.clock()
 
-print("Solution is Munchen...",
-  solution.state == germany.state.Munchen)
+assert(solution.state == germany.state.Munchen, "Solution is Munchen")
 
 print("Path cost is... " .. solution.cost[1])
 
