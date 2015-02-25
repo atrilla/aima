@@ -1,3 +1,9 @@
+25-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/simulated_annealing.lua: created.
+    * test/unit_beyond_classical_search.lua
+
+
 21-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * test/unit_problem_solving_searching.lua: asserts.

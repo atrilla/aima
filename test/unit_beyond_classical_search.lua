@@ -28,6 +28,7 @@ package.path = package.path .. ";../src/?.lua;../data/?.lua"
 
 local hills = require("hills")
 require("hill_climbing")
+require("simulated_annealing")
 
 print("Unit test chapter 4")
 print("")
@@ -45,6 +46,30 @@ print("Elapsed: " .. t2 - t1)
 solution = hill_climbing(hills, 2)
 print("Starting on 2, solution is state...", solution)
 solution = hill_climbing(hills, 20)
+print("Starting on 20, solution is state...", solution)
+
+print("")
+
+print("Simulated annealing")
+print("-------------")
+local t1 = os.clock()
+local function schedule(t)
+  if (t > 100) then
+    return 0
+  else
+    return math.exp(-t * 0.08)
+  end
+end
+local solution = simulated_annealing(hills, 10, schedule)
+local t2 = os.clock()
+
+print("Starting on 10, solution is state...", solution)
+
+print("Elapsed: " .. t2 - t1)
+
+solution = simulated_annealing(hills, 2, schedule)
+print("Starting on 2, solution is state...", solution)
+solution = simulated_annealing(hills, 20, schedule)
 print("Starting on 20, solution is state...", solution)
 
 print("")

@@ -39,5 +39,7 @@ set(FN,'FontName','/usr/share/fonts/truetype/droid/DroidSans.ttf');
 FS = findall(h,'-property','FontSize');
 set(FS,'FontSize',8);
 
+print('whatever.eps', '-depsc', '-S450,300')
+
 endfunction
 
