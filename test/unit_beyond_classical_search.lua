@@ -29,6 +29,7 @@ package.path = package.path .. ";../src/?.lua;../data/?.lua"
 local hills = require("hills")
 require("hill_climbing")
 require("simulated_annealing")
+require("genetic_algorithm")
 
 print("Unit test chapter 4")
 print("")
@@ -51,7 +52,7 @@ print("Starting on 20, solution is state...", solution)
 print("")
 
 print("Simulated annealing")
-print("-------------")
+print("-------------------")
 local t1 = os.clock()
 local function schedule(t)
   if (t > 100) then
@@ -71,6 +72,35 @@ solution = simulated_annealing(hills, 2, schedule)
 print("Starting on 2, solution is state...", solution)
 solution = simulated_annealing(hills, 20, schedule)
 print("Starting on 20, solution is state...", solution)
+
+print("")
+
+print("Genetic algorithm")
+print("-----------------")
+population = {{1,1,0,1,1,0}, {1,0,0,0,0,1}, {0,0,0,0,1,1},
+  {1,0,1,0,1,0}, {0,0,0,1,0,1}, {1,1,1,0,0,0}}
+
+local function fitness(x)
+  local state = 0
+  for i = 1, #x do
+    state = state + x[i] * math.pow(2, i - 1)
+  end
+  if (state == 0) then return 0 end
+  if (state > 40) then return 0 end
+  return hills[state]
+end
+
+local t1 = os.clock()
+local solution = genetic_algorithm(population, fitness)
+local t2 = os.clock()
+
+local statesol = 0
+for i = 1, #solution do
+  statesol = statesol + solution[i] * math.pow(2, i - 1)
+end
+print("Solution is state...", statesol)
+
+print("Elapsed: " .. t2 - t1)
 
 print("")
 

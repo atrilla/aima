@@ -36,11 +36,11 @@
 
 require("adt_search")
 
-function breadth_first_search(problem, start, finish, treegraph)
-  return adt_search(problem, start, finish, treegraph, ins_fifo)
+local function ins_fifo(frontier, node)
+  table.insert(frontier, node)
 end
 
-function ins_fifo(frontier, node)
-  table.insert(frontier, node)
+function breadth_first_search(problem, start, finish, treegraph)
+  return adt_search(problem, start, finish, treegraph, ins_fifo)
 end
 

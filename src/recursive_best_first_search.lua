@@ -36,17 +36,7 @@
 -- {path_cost, heuristic_cost}.
 
 
-function recursive_best_first_search(problem, start, finish,
-  heuristic)
-  -- inits
-  local node = {}
-  node.state = start
-  node.parent = {}
-  node.cost = {0, heuristic[start]}
-  return rbfs(problem, node, finish, heuristic, math.huge)
-end
-
-function rbfs(problem, node, finish, heuristic, flimit)
+local function rbfs(problem, node, finish, heuristic, flimit)
   if (node.state == finish) then
     return node
   else
@@ -109,5 +99,15 @@ function rbfs(problem, node, finish, heuristic, flimit)
       end
     end
   end
+end
+
+function recursive_best_first_search(problem, start, finish,
+  heuristic)
+  -- inits
+  local node = {}
+  node.state = start
+  node.parent = {}
+  node.cost = {0, heuristic[start]}
+  return rbfs(problem, node, finish, heuristic, math.huge)
 end
 

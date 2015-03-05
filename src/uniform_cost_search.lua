@@ -36,6 +36,10 @@
 
 require("best_first_search")
 
+local function eval_path(cost)
+  return cost[1]
+end
+
 function uniform_cost_search(problem, start, finish, treegraph)
   -- heuristic is not taken into account
   zeros = {}
@@ -44,9 +48,5 @@ function uniform_cost_search(problem, start, finish, treegraph)
   end
   return best_first_search(problem, start, finish, treegraph,
     eval_path, zeros)
-end
-
-function eval_path(cost)
-  return cost[1]
 end
 

@@ -31,6 +31,22 @@
 -- solution - is the solution state (number).
 
 
+local function eval_left(problem, current)
+  if (problem[current - 1] > problem[current]) then
+    return current - 1, true
+  else
+    return current, false
+  end
+end
+
+local function eval_right(problem, current)
+  if (problem[current + 1] > problem[current]) then
+    return current + 1, true
+  else
+    return current, false
+  end
+end
+
 function hill_climbing(problem, start)
   local current = start
   local neighbour
@@ -51,22 +67,6 @@ function hill_climbing(problem, start)
     else
       return current
     end
-  end
-end
-
-function eval_left(problem, current)
-  if (problem[current - 1] > problem[current]) then
-    return current - 1, true
-  else
-    return current, false
-  end
-end
-
-function eval_right(problem, current)
-  if (problem[current + 1] > problem[current]) then
-    return current + 1, true
-  else
-    return current, false
   end
 end
 

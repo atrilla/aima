@@ -36,11 +36,11 @@
 
 require("adt_search")
 
-function depth_first_search(problem, start, finish, treegraph)
-  return adt_search(problem, start, finish, treegraph, ins_lifo)
+local function ins_lifo(frontier, node)
+  table.insert(frontier, 1, node)
 end
 
-function ins_lifo(frontier, node)
-  table.insert(frontier, 1, node)
+function depth_first_search(problem, start, finish, treegraph)
+  return adt_search(problem, start, finish, treegraph, ins_lifo)
 end
 

@@ -1,3 +1,19 @@
+05-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/genetic_algorithm.lua: created.
+    * test/unit_beyond_classical_search.lua
+
+    * src/a_star_search.lua: local funcitons.
+    * src/breadth_first_search.lua
+    * src/depth_first_search.lua
+    * src/depth_limited_search.lua
+    * src/greedy_search.lua
+    * src/hill_climbing.lua
+    * src/recursive_best_first_search.lua
+    * src/uniform_cost_search.lua
+    * test/unit_beyond_classical_search.lua
+
+
 25-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/simulated_annealing.lua: created.

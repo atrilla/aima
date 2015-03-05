@@ -36,16 +36,7 @@
 --   within the depth limit).
 
 
-function depth_limited_search(problem, start, finish, limit)
-  -- inits
-  local node = {}
-  node.state = start
-  node.parent = {}
-  node.cost = 0
-  return recursive_dls(node, problem, finish, limit)
-end
-
-function recursive_dls(node, problem, finish, limit)
+local function recursive_dls(node, problem, finish, limit)
   local solution = {}
   if (node.state == finish) then
     return node
@@ -83,5 +74,14 @@ function recursive_dls(node, problem, finish, limit)
     end
     return solution
   end
+end
+
+function depth_limited_search(problem, start, finish, limit)
+  -- inits
+  local node = {}
+  node.state = start
+  node.parent = {}
+  node.cost = 0
+  return recursive_dls(node, problem, finish, limit)
 end
 

@@ -37,13 +37,13 @@
 
 require("best_first_search")
 
+local function eval_heuristic(cost)
+  return cost[2]
+end
+
 function greedy_search(problem, start, finish, treegraph, heuristic)
   -- eval func returns heuristic only
   return best_first_search(problem, start, finish, treegraph,
     eval_heuristic, heuristic)
-end
-
-function eval_heuristic(cost)
-  return cost[2]
 end
 
