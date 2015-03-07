@@ -37,18 +37,10 @@
 
 
 local function sort_population(population, fitness)
-  -- bubble
-  local change = true
-  while (change) do
-    change = false
-    for i = 2, #population do
-      if (fitness(population[i]) > fitness(population[i-1])) then
-        population[i-1], population[i] = 
-	  population[i], population[i-1]
-	change = true
-      end
-    end
+  local function comp(x, y)
+    return (fitness(x) < fitness(y))
   end
+  return table.sort(population, comp)
 end
 
 local function random_selection(population, fitness)
@@ -103,7 +95,7 @@ end
 
 function genetic_algorithm(population, fitness)
   local solution
-  for epoch = 1, 500 do
+  for epoch = 1, 100 do
     sort_population(population, fitness)
     local new_population = {}
     for i = 1, #population do

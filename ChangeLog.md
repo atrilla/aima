@@ -1,3 +1,9 @@
+07-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/genetic_algorithm.lua (sort_population): use table.sort.
+    * test/unit_beyond_classical_search.lua
+
+
 05-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/genetic_algorithm.lua: created.
