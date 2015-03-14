@@ -1,10 +1,15 @@
-07-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+14-Mar-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * test/trt_amp.lua: created.
+
+
+07-Mar-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/genetic_algorithm.lua (sort_population): use table.sort.
     * test/unit_beyond_classical_search.lua
 
 
-05-Feb-2015  Alexandre Trilla  <alex@atrilla.net>
+05-Mar-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/genetic_algorithm.lua: created.
     * test/unit_beyond_classical_search.lua
