@@ -1,3 +1,8 @@
+17-Mar-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * test/op_amp/op_amp.lua: created.
+
+
 14-Mar-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * test/trt_amp.lua: created.
