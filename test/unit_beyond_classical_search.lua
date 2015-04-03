@@ -30,6 +30,7 @@ local hills = require("hills")
 require("hill_climbing")
 require("simulated_annealing")
 require("genetic_algorithm")
+require("gradient_ascent")
 
 print("Unit test chapter 4")
 print("")
@@ -99,6 +100,30 @@ for i = 1, #solution do
   statesol = statesol + solution[i] * math.pow(2, i - 1)
 end
 print("Solution is state...", statesol)
+
+print("Elapsed: " .. t2 - t1)
+
+print("")
+
+print("Gradient ascent")
+print("---------------")
+
+-- Band-pass filter at 1.5kHz
+
+function bpf(f)
+  local L = 10e-3
+  local C = 1e-6
+  local R = 1000
+  local A = 1 / (1/(2*math.pi*f[1]*L) - 2*math.pi*f[1]*C)
+  return math.abs((A/(R^2 + A^2))*math.sqrt(A^2+R^2))
+end
+
+local sol = {500}
+local t1 = os.clock()
+gradient_ascent(bpf, sol, 1)
+local t2 = os.clock()
+
+print("Solution is state...", sol[1])
 
 print("Elapsed: " .. t2 - t1)
 

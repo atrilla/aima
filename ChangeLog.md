@@ -1,3 +1,9 @@
+03-Apr-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/gradient_ascent.lua: created.
+    * test/unit_beyond_classical_search.lua
+
+
 17-Mar-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * test/op_amp/op_amp.lua: created.
