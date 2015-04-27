@@ -111,9 +111,9 @@ print("---------------")
 -- Band-pass filter at 1.5kHz
 
 function bpf(f)
-  local L = 10e-3
-  local C = 1e-6
-  local R = 1000
+  local L = 100e-3
+  local C = 10e-6
+  local R = 500
   local A = 1 / (1/(2*math.pi*f[1]*L) - 2*math.pi*f[1]*C)
   return math.abs((A/(R^2 + A^2))*math.sqrt(A^2+R^2))
 end

@@ -1,3 +1,8 @@
+27-Apr-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/neural_network.lua: created. Init and prediction.
+
+
 03-Apr-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/gradient_ascent.lua: created.
