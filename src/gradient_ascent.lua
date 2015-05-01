@@ -63,7 +63,8 @@ function gradient_ascent(objfun, var, step)
     end
     -- eval
     feval = objfun(newvar)
-    if (feval > preveval) then
+    print(feval)
+    if ((feval - preveval) > 1e-6) then
       -- update var
       for i = 1, #var do
         var[i] = newvar[i]

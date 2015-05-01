@@ -1,3 +1,15 @@
+01-May-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/neural_network.lua: train.
+    * src/neural_network.lua: 1e-6 J diff.
+    * test/orgate.lua: created.
+
+
+28-Apr-2015  Alexandre Trilla  <alex@atrilla.net>
+
+    * src/neural_network.lua: predict vector iface.
+
+
 27-Apr-2015  Alexandre Trilla  <alex@atrilla.net>
 
     * src/neural_network.lua: created. Init and prediction.
