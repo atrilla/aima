@@ -1,5 +1,5 @@
 ----------------------------------------------------------------------
--- File    : orgate.lua
+-- File    : xorgate.lua
 -- Created : 01-May-2015
 -- By      : Alexandre Trilla <alex@atrilla.net>
 --
@@ -29,7 +29,7 @@ require "neural_network"
 
 local net = ann:new(2,4,1)
 local data = {{0,0},{0,1},{1,0},{1,1}}
-local t = {{0},{1},{1},{1}}
+local t = {{0},{1},{1},{0}}
 
 net:train(data,t)
 

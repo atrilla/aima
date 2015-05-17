@@ -204,7 +204,7 @@ function ann:train(feat, targ)
   end
   -- flatten thetas
   local flatTheta = saveThetas()
-  gradient_ascent(cost, flatTheta, 0.1)
+  gradient_ascent(cost, flatTheta, 1)
   -- deflat theta, restore model
   trerr = cost(flatTheta)
   loadThetas(flatTheta)
